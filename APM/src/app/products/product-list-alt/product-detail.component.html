@@ -29,7 +29,7 @@
       <div class="col-md-6">{{ product.quantityInStock }}</div>
     </div>
 
-    <div class="table-responsive" *ngIf="productSuppliers">
+    <div class="table-responsive" *ngIf="productSuppliers$ | async as productSuppliers">
       <table class="table mb-0" *ngIf="productSuppliers.length; else noSuppliers">
         <thead>
           <tr>
@@ -55,6 +55,6 @@
   </ng-template>
 </div>
 
-<div class="alert alert-danger" *ngIf="errorMessage">
+<div class="alert alert-danger" *ngIf="errorMessage$ | async as errorMessage">
   {{ errorMessage }}
 </div>
